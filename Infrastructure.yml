@@ -1,6 +1,6 @@
 ---
 - name: Buile Infrastructure
-  hosts: QA
+  hosts: 192.168.33.102
   user: vagrant
   sudo: yes
   roles:
