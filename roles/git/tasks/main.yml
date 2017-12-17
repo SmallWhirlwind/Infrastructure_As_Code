@@ -1,5 +1,5 @@
 ---
 - name: install git
   apt:
-    name: git:1.9.1
+    name: git=1.9.1
     update_cache: yes
