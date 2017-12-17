@@ -1,6 +1,6 @@
 ---
 - name: Buile Infrastructure
-  hosts: all
+  hosts: QA
   user: vagrant
   sudo: yes
   roles:

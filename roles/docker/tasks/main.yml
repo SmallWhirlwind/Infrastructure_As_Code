@@ -1,0 +1,30 @@
+---
+- name: Uninstall old versions
+  shell: apt-get remove docker docker-engine docker.io
+- name:
+  apt:
+    sudo: yes
+    name: "{{ item }}"
+    update_cache: yes
+  with_items:
+    linux-image-extra-$(uname -r)
+    linux-image-extra-virtual
+- name: SET UP THE REPOSITORY
+  apt:
+    sudo: yes
+    name: "{{ item }}"
+    update_cache: yes
+  with_items:
+    apt-transport-https
+    ca-certificates
+    curl
+    software-properties-common
+- name:
+  shell: curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+- name:
+  shell: sudo apt-key fingerprint 0EBFCD88
+- name:
+  shell: sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+- name: INSTALL DOCKER CE
+  apt:
+    name: docker-ce
