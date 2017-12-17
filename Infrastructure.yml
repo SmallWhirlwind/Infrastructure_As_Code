@@ -1,0 +1,9 @@
+---
+- name: Buile Infrastructure
+  hosts: Dev
+  sudo: true
+  remote_user: vagrant
+  roles:
+    - role: git
+    # - role: docker
+    # - role: docker-compose
