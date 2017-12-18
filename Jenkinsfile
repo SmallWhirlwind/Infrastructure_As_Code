@@ -9,7 +9,7 @@ node {
         }
         stage('Test') {
             sh '''
-            py.test -n 1 -v --host="192.168.33.101" --connection=ssh test_myinfra.py
+            sudo py.test -n 1 -v --host="192.168.33.101" --connection=ssh test_myinfra.py
             '''
         }
     }
