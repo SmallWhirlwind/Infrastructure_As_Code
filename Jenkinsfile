@@ -7,5 +7,10 @@ node {
             sudo ansible-playbook -i hosts Infrastructure.yml --user $USERNAME --extra-vars ansible_ssh_pass=$PASSWORD
             '''
         }
+        stage('Test') {
+            sh '''
+            py.test -n 1 -v --host="192.168.33.101" --connection=ssh test_myinfra.py
+            '''
+        }
     }
 }
